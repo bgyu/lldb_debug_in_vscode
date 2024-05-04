@@ -10,10 +10,10 @@ and compile and debug C++ code with cmake and lldb.
 * C/C++ Extension Pack (Microsoft)
 * CMake
 * CMake Tools
-* Remote SSH
-* Remote Explorer
+* Remote SSH (Microsoft)
+* Remote Explorer (Microsoft)
 
-## Prerequisite: Linux Packages (Assuming Debina/Ubuntu)
+## Prerequisite: Linux Packages (Assuming Debian or Ubuntu)
 ```
 sudo apt update
 sudo apt install build-essential libstdc++-12-dev
