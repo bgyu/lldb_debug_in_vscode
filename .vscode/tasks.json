@@ -1,0 +1,83 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Debug Config",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "${workspaceFolder}",
+                "-B ${workspaceFolder}/cmbuild/debug",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_INSTALL_PREFIX=${workspaceFolder}/build/debug"            
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "dependsOn": ["clean"]
+        },
+        {
+            "label": "Debug Build",
+            "type": "shell",
+            "command": "cmake",
+            "args":[
+                "--build",
+                "${workspaceFolder}/cmbuild/debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": ["Debug Config"]
+        },
+        {
+            "label": "Release Config",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "${workspaceFolder}",
+                "-B ${workspaceFolder}/cmbuild/release",
+                "-DCMAKE_BUILD_TYPE=Release"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "dependsOn": ["clean"]
+        },
+        {
+            "label": "Release Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/cmbuild/release"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": ["Release Config"]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "-fr",
+                "${workspaceFolder}/cmbuild"
+            ]
+        },
+        {
+            "label": "Debug Install",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--install",
+                "${workspaceFolder}/cmbuild/debug"
+            ],
+            "dependsOn": ["Debug Build"]
+        }
+    ]
+}
