@@ -1,0 +1,21 @@
+{
+    // Debug C++ under Windows with VS Code
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "cl.exe - Build and debug active file",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "cl.exe build active file",
+            "miDebuggerPath": "path/to/mi/debugger" // not really needed for cppvsdbg.
+        }
+    ]
+}
